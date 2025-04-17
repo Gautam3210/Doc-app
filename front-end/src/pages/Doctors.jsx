@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Docters = () => {
+const Doctors = () => {
   return (
     <div>
-      
+    
     </div>
   )
 }
 
-export default Docters
+export default Doctors
