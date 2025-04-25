@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Doctors from './pages/Doctors'
 import Login from './pages/Login'
@@ -11,6 +11,9 @@ import Appointment from './pages/Appointment'
 
 import Navbar from './components/navbar'
 import Footer from './components/Footer'
+import MyProfile from './pages/MyProfile'
+
+
 
 
 const App = () => {
@@ -24,7 +27,10 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path="/My-profile" element={<Navigate to="Myprofile1"/>}/>
+        <Route path='/myprofile' element={<MyProfile />} />
+
+
+
 
      
 
