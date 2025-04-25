@@ -60,6 +60,7 @@ const MyProfile = () => {
       </div>
       
     </div>
+    
 
     <div>
       <p className='text-neutral-500 underline mt-3'>BASIC INFORMATION</p>
