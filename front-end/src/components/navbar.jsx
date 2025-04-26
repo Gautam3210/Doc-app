@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:flex flex-col'>
             <div className='min-w-48 bg-stone-100 rounded flex fle-col gap-4 p-4'>
               <p onClick={()=>navigate('MyProfile')} className='hover:text-black cursor-pointer'>My Profile</p>
-              <p onClick={()=>navigate('My-appointment')}  className='hover:text-black cursor-pointer'>My Appointments</p>
+              <p onClick={()=>navigate('My-appointment')}  className='hover:text-black cursor-pointer'>My-appointments</p>
               <p onClick={()=>(setToken())} className='hover:text-black cursor-pointer'>Logout</p> 
             </div>
           </div>
@@ -54,6 +54,7 @@ const Navbar = () => {
         :        <button onClick={()=>navigate('/login')} className='bg-primary text-white px-8 py-3 rounded-full font-light hidden md:block'>Create Account</button>
         
         }
+        <img className='w-6 md:hidden' src={assets.menu_icon} alt="" />
 
       </div>
     </div>

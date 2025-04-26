@@ -1,20 +1,15 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import Doctors from './pages/Doctors'
-import Login from './pages/Login'
-import About from './pages/About'
-import Contact from './pages/Contact'
-
-import MyAppointment from './pages/MyAppointment'
-import Appointment from './pages/Appointment'
-
-import Navbar from './components/navbar'
-import Footer from './components/Footer'
-import MyProfile from './pages/MyProfile'
-
-
-
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Doctors from './pages/Doctors';
+import Login from './pages/Login';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import MyAppointment from './pages/MyAppointment'; // Correct import
+import Appointment from './pages/Appointment';
+import Navbar from './components/navbar';
+import Footer from './components/Footer';
+import MyProfile from './pages/MyProfile';
 
 const App = () => {
   return (
@@ -28,13 +23,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/myprofile' element={<MyProfile />} />
-
-
-
-
-     
-
-        <Route path='/myAppointment' element={<MyAppointment />} />
+        <Route path='/my-appointment' element={<MyAppointment />} /> {/* updated path */}
         <Route path='/appointment/:docId' element={<Appointment />} />
       </Routes>
       <Footer />
@@ -42,5 +31,6 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
+
 
