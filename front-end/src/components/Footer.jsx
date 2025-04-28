@@ -36,6 +36,7 @@ const Footer = () => {
         
            </div>
     </div>
+    
     {/*------Copyright Text-----*/}
     <div>
       <hr />
