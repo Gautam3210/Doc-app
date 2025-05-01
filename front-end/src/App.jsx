@@ -10,7 +10,7 @@ import Appointment from './pages/Appointment';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import MyProfile from './pages/MyProfile';
-import NEWPAGE from './pages/NEWPAGE';
+
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
         <Route path='/myprofile' element={<MyProfile />} />
         <Route path='/my-appointment' element={<MyAppointment />} /> {/* updated path */}
         <Route path='/appointment/:docId' element={<Appointment />} />
-        <NEWPAGE/>
+       
       </Routes>
       <Footer />
     </div>
