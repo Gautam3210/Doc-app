@@ -14,7 +14,6 @@ const About = () => {
         <p>
       <strong>Prescripto</strong> is a modern digital healthcare platform designed to simplify the process of finding trusted doctors, booking appointments, and managing your health. Our goal is to bridge the gap between patients and healthcare providers using smart, user-friendly technology.
         </p>
-        
         <p>
           Whether you're scheduling a consultation, reviewing a doctor's background, or looking for specialists nearby, Prescripto brings it all to your fingertips. No long wait times, no paperwork hassles — just seamless care when you need it.
         </p>
