@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import { specialityData } from "../../front-end/src/assets/assets";
-import About from "../../front-end/src/pages/About";
+
 
 const doctorSchema = new mongoose.Schema({
   name:{type:String,require:true},
