@@ -6,8 +6,15 @@ const addDoctor = async (req,res)=>{
 
     const imageFile =req.file
 
-    console.log({name,email,password,speciality,degree,experience,about,fees,adress},imageFile);
-    
+   //checking for all data to add doctor
+   if( !name|| !email || !password || !speciality ||!degree || !experience || !about || !fees ||!adress){
+
+    return res.json({succss:false,message:"Missing Details"})
+   }
+    //validating email format
+    if(!validator.isEmail(email)){
+       return res.json({succss:false,message:"Missing Details"})
+    }
 
   }
   catch (error)
