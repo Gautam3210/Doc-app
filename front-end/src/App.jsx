@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import MyProfile from './pages/MyProfile';
 
 
+
 const App = () => {
   return (
     <div className='mx-4 sm:mx-10'>
