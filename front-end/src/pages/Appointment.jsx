@@ -60,6 +60,7 @@ const Appointment = () => {
     setDocSlots(newSlots); // ✅ FIXED: Set all 7 days' slots at once
   };
 
+  
   useEffect(() => {
     if (doctors?.length) {
       fetchDocInfo();
