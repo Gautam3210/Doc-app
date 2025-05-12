@@ -41,6 +41,7 @@ const Appointment = () => {
         currentDate.setHours(10);
         currentDate.setMinutes(0);
       }
+      
 
       let timeSlots = [];
       while (currentDate < endTime) {
@@ -60,7 +61,7 @@ const Appointment = () => {
     setDocSlots(newSlots); // ✅ FIXED: Set all 7 days' slots at once
   };
 
-  
+
   useEffect(() => {
     if (doctors?.length) {
       fetchDocInfo();
