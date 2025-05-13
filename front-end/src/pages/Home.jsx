@@ -5,7 +5,6 @@ import TopDoctors from '../components/TopDoctors'
 import Banner from '../components/Banner'
 import Doctors from './Doctors'
 
-
 const Home = () => {
   return (
     <div >
