@@ -1,13 +1,27 @@
+// middleware/multter.js
 import multer from 'multer';
+import fs from 'fs';
+import path from 'path';
 
+// Ensure 'uploads' directory exists
+const uploadDir = './uploads';
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
 
-const storage =multer.diskStorage({
-  filename:function(req,file,callback){
-    callback(null,file.originalname)
+// Configure storage for multer
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, uploadDir);
+  },
+  filename: function (req, file, callback) {
+    const uniqueName = Date.now() + '-' + file.originalname;
+    callback(null, uniqueName);
   },
 });
 
-const upload=multer({storage});
+// Create multer instance
+const upload = multer({ storage });
 
 export default upload;
 

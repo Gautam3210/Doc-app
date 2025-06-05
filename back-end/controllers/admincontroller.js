@@ -101,4 +101,19 @@ const loginAdmin = async (req,res)=>{
   }
 }
 
-export { addDoctor ,loginAdmin };
+//Api to get all doctors list for
+
+const allDoctors = async (req,res)=>{
+  try {
+
+    const doctors = await doctorModel.find({}).select('-password')
+    res.json({success:false,message:error.message})
+    
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message  })
+    
+  }
+}
+
+export { addDoctor ,loginAdmin,allDoctors };
