@@ -9,14 +9,14 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { setAToken, backendurl } = useContext(AdminContext);
+  const { setAToken, backendUrl } = useContext(AdminContext);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
     try {
       if (state === 'Admin') {
-        const { data } = await axios.post(`${backendurl}/api/admin/login`, {
+        const { data } = await axios.post(`${backendUrl}/api/admin/login`, {
           email,
           password,
         });
@@ -61,6 +61,7 @@ const Login = () => {
             className="border border-[#DADADA] rounded w-full p-2 mt-1"
             type="password"
             required
+            autoComplete="current-password"
           />
         </div>
 
