@@ -61,8 +61,14 @@ const registerUser = async (req , res)=>{
    const loginUser = async (req,res)=>{
 
     try {
+      if (!req.body) {
+      return res.status(400).json({ success: false, message: 'Request body is missing' });
+    }
 
       const {email,password} =req.body
+       if (!email || !password) {
+      return res.status(400).json({ success: false, message: 'Email and password are required' });
+    }
       const user = await userModel.findOne({email})
 
       if(!user){
@@ -91,7 +97,7 @@ const registerUser = async (req , res)=>{
    const getProfile = async (req,res)=>{
     try {
       const {userId} = req.body
-      const userData = await userModel.findById(userId).select('_password')
+      const userData = await userModel.findById(userId).select('-password')
 
 
     } catch (error) {
