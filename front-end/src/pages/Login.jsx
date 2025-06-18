@@ -4,7 +4,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const   Login = () => {
   
   const {backendUrl,token,setToken } = useContext(AppContext)
   const navigate = useNavigate()
@@ -18,8 +18,18 @@ const Login = () => {
     event.preventDefault()
   
    try {
+    if(state === 'Sign Up'){
+      const {data} = await axios.post(backendUrl + '/api/user/register',{name,password,email  });
+      if(data.success){
+        localStorage.setItem('token',data.token)
+        setToken(data.token)
+      }
+      else{
+        toast.error(data.message)
+      }
 
-    if(state === 'Login'){
+    }
+    else{
 
       const { data } = await axios.post(`${backendUrl}/api/user/login`, { email, password })
 

@@ -1,11 +1,12 @@
 import express from 'express'
-import { registerUser,loginUser, getProfile } from '../controllers/userControllers.js'
+import { registerUser,loginUser, getProfile, updateProfile } from '../controllers/userControllers.js'
 import authUser from '../middleware/authUser.js'
+import upload from '../middleware/multter.js'
 const userRouter = express.Router()
 
 userRouter.post('/register',registerUser)
-
 userRouter.post('/login',loginUser)
-userRouter.post('/get-profile',authUser,getProfile)
+userRouter.get('/get-profile',authUser,getProfile)
+userRouter.post('/update-profile', upload.single('image'),authUser,updateProfile)
 
-export default userRouter
+export default userRouter 
