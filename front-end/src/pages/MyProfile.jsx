@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 
@@ -8,7 +10,37 @@ const MyProfile = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [image, setImage] = useState(false);
 
-  const updateUserProfileData = async () => {};
+  const updateUserProfileData = async () => {
+    try {
+      const formData = new FormData();
+
+      formData.append("name", userData.name);
+      formData.append("phone", userData.phone);
+      formData.append("address", JSON.stringify(userData.address));
+      formData.append("gender", userData.gender);
+      formData.append("dob", userData.dob);
+
+      image && formData.append("image", image);
+
+      const { data } = await axios.post(
+        backendUrl + "/api/user/update-profile",
+        formData,
+        { headers: { token } }
+      );
+
+      if (data.success) {
+        toast.success(data.message);
+        await loadUserProfileData();
+        setIsEdit(false);
+        setImage(false);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
 
   return (
     userData && (
@@ -21,7 +53,11 @@ const MyProfile = () => {
                 src={image ? URL.createObjectURL(image) : userData.image}
                 alt=""
               />
-              <img className="w-10 absolute bottom-12 right-12" src={image ? "" : assets.upload_icon} alt="" />
+              <img
+                className="w-10 absolute bottom-12 right-12"
+                src={image ? "" : assets.upload_icon}
+                alt=""
+              />
             </div>
             <input
               onChange={(e) => setImage(e.target.files[0])}
@@ -145,14 +181,14 @@ const MyProfile = () => {
         <div className="mt-10">
           {isEdit ? (
             <button
-              className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all"
-              onClick={() => setIsEdit(false)}
+              className="border border-purple-900 px-8 py-2 rounded-full hover:bg-purple-900 hover:text-white transition-all"
+              onClick={updateUserProfileData}
             >
               Save Information
             </button>
           ) : (
             <button
-              className="border border-primary px-8 py-2 rounded-full  hover:bg-primary hover:text-white transition-all"
+              className="border border-purple-900 px-8 py-2 rounded-full  hover:bg-purple-900 hover:text-white transition-all"
               onClick={() => setIsEdit(true)}
             >
               Edit

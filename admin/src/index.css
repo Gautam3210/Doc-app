@@ -10,3 +10,7 @@
 *{
   font-family: Outfit;
 }
+
+.purple-filter{
+  filter: hue-rotate(42deg);
+}
