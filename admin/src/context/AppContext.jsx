@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-const currency = '$'
+const currency = '₹'
 
 export const AppContext = createContext();
 
